@@ -1,2 +1,0 @@
-# BaseDeDatos1
-Proyecto
