@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pagina Principal</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="archivoscss/general.css">
+	</head>
+	<body>
+		<a href="loginadministrador.html">Administrador</a>
+		<a href="seguimientocita.html">Seguimiento Cita</a>
+		<a href="registrocliente.html">Registrar Cliente</a>
+		<a href="registroautomovil.html">Registrar Automóvil</a>
+		<br /><br /><br /><br />
+		<h1>Citas</h1>
+		<br></br>
+			<form id="fr" name="fr1" method="post">
+				<label>Ingrese su ID:<label>
+				<input type="text"id="id_cliente_cita" name="id_cliente_cita"/>
+				<label>Ingrese su nombre completo:<label>
+				<input type="text"id="nombre_completo_cita" name="nombre_completo_cita"/>
+				<label>Seleccione opción:<label>
+				<select id="opcion_cita" name="opcion_cita">
+				<option value="1">Tipo Reparación</option> 
+				<option value="2">Tipo Mantenimiento</option>
+				</select>
+				<br />
+				<select id="tipo_mantenimiento" name="tipo_mantenimiento">
+				<option value="5000">5000</option> 
+				<option value="10000">10000</option>
+				<option value="15000">15000</option>
+				</select>
+				<br />
+				<select id="tipo_reparacion" name="tipo_repacion">
+				<option value="fallo del motor de arranque">fallo del motor de arranque</option> 
+				<option value="fallo en el tren delantero">fallo en el tren delantero</option>
+				<option value="ruido cerca del motor">ruido cerca del motor</option>
+				</select>
+				<label>Fecha entrada: (aaaa-mm-dd)</label>
+				<input type="date" id="fecha_entrada_cita"/>
+				<label>Hora entrada:</label>
+				<select id="hora_entrada_cita" name="hora_entrada_cita"></select>
+				<label>Placa:<label>
+				<select id="placa_cita" name="placa_cita"></select>
+				<button type="button"  id="registrar_cita"><B>Crear cita</B></button>
+				
+			</form>
+		
+		
+	</body>
+</html>
