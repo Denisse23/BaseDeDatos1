@@ -69,7 +69,7 @@ h1{
 	font-family: "Times New Roman", Times, serif;
 }
 
-button{
+input[type=button]{
 	font-family: "Times New Roman", Times, serif;
 	height: 25%;
 	margin-top:  3%;
