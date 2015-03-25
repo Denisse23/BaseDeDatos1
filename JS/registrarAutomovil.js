@@ -18,7 +18,7 @@ $(document).ready(function(){
 					alert("El ID del cliente no existe.");
 				} else {
 					var campo_nombre = document.getElementById("nombre_automovil");
-					campo_nombre.setAttribute("placeholder", data);
+					campo_nombre.value = data;
 					campo_nombre.setAttribute("readonly", "");
 					$.post("PHP/insertarAutomovil.php", {
 						id_cliente: id_cliente_tmp,
