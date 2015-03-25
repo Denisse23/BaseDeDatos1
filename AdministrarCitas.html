@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Administración de Citas</title>
+		<link rel="stylesheet" type="text/css" href="archivoscss/general.css">
+	</head>
+	<body>
+		<br /><br /><br /><br />
+		<h1>Administración de Citas</h1>
+		<br></br>
+			<form id="fr" name="fr1" method="post">
+				<section>
+				<label>Seleccione citas para modificar estado:<label>
+				<select id="citas_estado" name="citas_estado"></select>
+				<label>ID cita:<label>
+				<input type="text"id="id_cita" name="id_cita"/>
+				<label>Nombre completo:<label>
+				<input type="text"id="nombre_completo" name="nombre_completo"/>
+				<label>Tipo cita:<label>
+				<input type="text"id="tipo" name="tipo"/>
+			    <input type="text"id="entrada" name="entrada"/>
+				<label>Fecha entrada: (aaaa-mm-dd)</label>
+				<input type="text"id="fecha_entrada" name="fecha_entrada"/>
+				<label>Hora entrada:</label>
+				<input type="text"id="hora_entrada" name="hora_entrada"/>
+				<label>Placa:<label>
+				<input type="text"id="placa" name="placa"/>
+				<label>Posible fecha entrega: (aaaa-mm-dd)</label>
+				<input type="text"id="fecha_entrega" name="fecha_entrega"/>
+				<label>Asesor:<label>
+				<input type="text"id="asesor" name="asesor"/>
+				<label>Mecánicos:<label>
+				<select id="mecacinos" name="mecanicos"></select>
+				<label>Seleccione estado:<label>
+				<select id="estado" name="estado">
+				<option value="No ingresado">No ingresado</option> 
+				<option value="Ingresado">Ingresado</option>
+				<option value="En reparación">En reparación</option>
+				<option value="Pendiente de repuestos">Pendiente de repuestos</option>
+				<option value="Listo">Listo</option>
+				<option value="Auto Retirado">Auto Retirado</option>
+				<option value="Cancelada">Cancelada</option>
+				</select>
+				<button type="button"  id="modificar"><B>Modificar</B></button>
+				
+			</form>
+		
+			<form id="fr2" name="fr2" method="post">
+				
+				<label>Seleccione cita para confirmar:<label>
+				<select id="citas_sin_confirmar" name="citas_sin_confirmar"></select>
+				<label>ID cita:<label>
+				<input type="text"id="id_cita" name="id_cita"/>
+				<label>Nombre completo:<label>
+				<input type="text"id="nombre_completo" name="nombre_completo"/>
+				<label>Tipo cita:<label>
+				<input type="text"id="tipo" name="tipo"/>
+			    <input type="text"id="entrada" name="entrada"/>
+				<label>Fecha entrada: (aaaa-mm-dd)</label>
+				<input type="text"id="fecha_entrada" name="fecha_entrada"/>
+				<label>Hora entrada:</label>
+				<input type="text"id="hora_entrada" name="hora_entrada"/>
+				<label>Placa:<label>
+				<input type="text"id="placa" name="placa"/>
+				<label>Ingrese posible fecha entrega: (aaaa-mm-dd)</label>
+				<input type="text"id="fecha_entrega" name="fecha_entrega"/>
+				<label>Seleccione asesor:<label>
+				<select id="asesor" name="asesor"></select>
+				<label>Seleccione mecánicos:<label>
+				<select id="lista_mecacinos" name="lista_mecanicos"></select>
+				<select id="mecacinos" name="mecanicos"></select>
+			    <button type="button"  id="confirmar"><B>Confirmar cita</B></button>
+			</section>
+			</form>
+		
+		
+	</body>
+</html>
