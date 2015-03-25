@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2015 at 02:46 PM
+-- Generation Time: Mar 24, 2015 at 07:50 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.3.18
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `asesor` (
 --
 
 CREATE TABLE IF NOT EXISTS `automovil` (
-  `placa` bigint(20) unsigned NOT NULL COMMENT 'La placa del automóvil',
+  `placa` varchar(20) NOT NULL COMMENT 'La placa del automóvil',
   `modelo` varchar(25) DEFAULT NULL COMMENT 'El modelo del automóvil',
   `numero_motor` varchar(15) DEFAULT NULL COMMENT 'El número del motor del automóvil',
   `id_cliente_automovil` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del cliente del automóvil'
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `cita` (
   `fecha_entrada` date DEFAULT NULL COMMENT 'Fecha en la que se registró en auto en la cita',
   `hora_entrada` time DEFAULT NULL COMMENT 'Hora de registro del carro en la cita',
   `estado` varchar(20) DEFAULT NULL COMMENT 'Estado del carro durante la cita',
-  `placa_cita` bigint(20) unsigned DEFAULT NULL COMMENT 'La placa del carro en la cita',
+  `placa_cita` varchar(20) DEFAULT NULL COMMENT 'La placa del carro en la cita',
   `id_jefe_cita` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del asesor encargado de la cita',
   `id_cliente_cita` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del cliente de la cita',
   `confirmada` int(1) DEFAULT NULL COMMENT 'Sera un 1 para cita confirmada y un 0 par cita aún no confirmada'
@@ -158,11 +158,6 @@ ALTER TABLE `cliente_telefonos`
 ALTER TABLE `asesor`
   MODIFY `id_asesor` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'El id del asesor';
 --
--- AUTO_INCREMENT for table `automovil`
---
-ALTER TABLE `automovil`
-  MODIFY `placa` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'La placa del automóvil';
---
 -- AUTO_INCREMENT for table `cita`
 --
 ALTER TABLE `cita`
@@ -192,9 +187,9 @@ ADD CONSTRAINT `dueño` FOREIGN KEY (`id_cliente_automovil`) REFERENCES `cliente
 -- Constraints for table `cita`
 --
 ALTER TABLE `cita`
+ADD CONSTRAINT `automovil` FOREIGN KEY (`placa_cita`) REFERENCES `automovil` (`placa`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `asesor` FOREIGN KEY (`id_jefe_cita`) REFERENCES `asesor` (`id_asesor`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `cliente` FOREIGN KEY (`id_cliente_cita`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `placa` FOREIGN KEY (`placa_cita`) REFERENCES `automovil` (`placa`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `cliente` FOREIGN KEY (`id_cliente_cita`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cita_mecanicos`
