@@ -97,7 +97,6 @@ $(document).ready(function(){
 		{
 			var json=$.parseJSON(data);
 			$num =0;
-			alert(data);
 			while(json[$num]){
 				$('#mecanicos1').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
