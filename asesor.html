@@ -4,11 +4,18 @@
 		<meta charset="utf-8" />
 		<title>Administración de Asesores-Mecánicos</title>
 		<link rel="stylesheet" type="text/css" href="archivoscss/general.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="JS/administrarAsesoresMecanicos.js"></script>
 	</head>
 	<body>
 		<br /><br /><br /><br />
 		<h1>Administración de Asesores-Mecánicos</h1>
-		<br></br>
+		<br>
+			<div id="seleccion_jefe">
+				<label>Seleccione el jefe actual:</label>
+				<select id="lista_jefes" name="lista_jefes"></select>
+			</div>
+		</br>
 			<form id="fr" name="fr1" method="post">
 				<section>
 				<label>Agregar:<label>
@@ -27,9 +34,12 @@
 				</select>
 				<label>Teléfono:</label>
 				<input type="text" id="telefono_asesor" name="telefono_asesor"/>
-				<button type="button"  id="agregar_asesor"><B>Agregar</B></button>
+				<input type="button"  id="agregar_asesor" value="Agregar">
 				
 			</form>
+			<br>
+			<hr>
+			<br>
 		    <form id="fr2" name="fr2" method="post">
 				<label>Modificar:<label>
 				<label>Seleccione asesor/mecánico:<label>
@@ -49,7 +59,7 @@
 				</select>
 				<label>Teléfono:</label>
 				<input type="text" id="mtelefono_asesor" name="mtelefono_asesor"/>
-				<button type="button"  id="modificar_asesor"><B>Modificar</B></button>
+				<input type="button"  id="modificar_asesor" value="Modificar">
 				
 			</form>
 			</section>

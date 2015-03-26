@@ -24,6 +24,18 @@ body{
 	margin: 0 auto;
 }
 
+#seleccion_jefe {
+	width:30%;
+	clear: both;
+	margin:0 auto; 
+}
+
+#seleccion_jefe #lista_jefes{
+	width: 100%;
+	clear: both;
+	margin:0 auto; 
+}
+
 #fr {
     	width:30%;
     	clear: both;
