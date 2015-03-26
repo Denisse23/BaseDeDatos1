@@ -15,25 +15,23 @@
 				<section>
 				<label>Seleccione citas para modificar estado:<label>
 				<select id="citas_estado" name="citas_estado"></select>
-				<label>ID cita:<label>
-				<input type="text"id="id_cita" name="id_cita"/>
-				<label>Nombre completo:<label>
-				<input type="text"id="nombre_completo" name="nombre_completo"/>
+				<label>Id cliente:<label>
+				<input type="text"id="id_cliente1" name="id_cliente1" readonly/>
 				<label>Tipo cita:<label>
-				<input type="text"id="tipo1" name="tipo1"/>
-			    <input type="text"id="entrada1" name="entrada1"/>
+				<input type="text"id="tipo1" name="tipo1" readonly/>
+			    <input type="text"id="entrada1" name="entrada1" readonly/>
 				<label>Fecha entrada: (aaaa-mm-dd)</label>
-				<input type="text"id="fecha_entrada1" name="fecha_entrada1"/>
+				<input type="text"id="fecha_entrada1" name="fecha_entrada1" readonly/>
 				<label>Hora entrada:</label>
-				<input type="text"id="hora_entrada1" name="hora_entrada1"/>
+				<input type="text"id="hora_entrada1" name="hora_entrada1" readonly/>
 				<label>Placa:<label>
-				<input type="text"id="placa1" name="placa1"/>
+				<input type="text"id="placa1" name="placa1" readonly/>
 				<label>Posible fecha entrega: (aaaa-mm-dd)</label>
-				<input type="text"id="fecha_entrega1" name="fecha_entrega1"/>
+				<input type="text"id="fecha_entrega1" name="fecha_entrega1" readonly/>
 				<label>Asesor:<label>
-				<input type="text"id="asesor1" name="asesor1"/>
+				<input type="text"id="asesor1" name="asesor1" readonly/>
 				<label>Mecánicos:<label>
-				<select id="mecacinos1" name="mecanicos1"></select>
+				<select id="mecanicos1" name="mecanicos1"></select>
 				<label>Seleccione estado:<label>
 				<select id="estado" name="estado">
 				<option value="No ingresado">No ingresado</option> 
@@ -45,7 +43,7 @@
 				<option value="Cancelada">Cancelada</option>
 				</select>
 				<br/>
-				<button type="button"  id="modificar"><B>Modificar</B></button>
+				<button type="button"  id="modificar" onclick="modificarC()"><B>Modificar</B></button>
 				
 			</form>
 		    

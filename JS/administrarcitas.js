@@ -12,6 +12,19 @@ $(document).ready(function(){
 		
 		}
 	});
+	var url="./PHP/citasconfirmadas.php";
+	$.ajax({type:"POST", url:url,data: $("#fr").serialize(),
+		success: function(data)
+		{
+			var json=$.parseJSON(data);
+			$num =0;
+			while(json[$num]){
+				$('#citas_estado').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
+				$num=$num+1;
+			}
+		
+		}
+	});
 	var url="./PHP/asesorescita.php";
 	$.ajax({type:"POST", url:url,data: $("#fr2").serialize(),
 		success: function(data)
@@ -57,6 +70,38 @@ $(document).ready(function(){
 	   });
 		
     });
+	$("select[name=citas_estado]").change(function(){
+	   var url="./PHP/infocitaconfirmada.php";
+		$.ajax({type:"POST", url:url,data: $("#fr").serialize(),
+		success: function(data)
+		{
+			var json=$.parseJSON(data);
+			var partes = data.split("*");
+			$('#id_cliente1').val(partes[1]);
+			$('#tipo1').val(partes[2]);
+			$('#entrada1').val(partes[3]);
+			$('#fecha_entrada1').val(partes[4]);
+			$('#hora_entrada1').val(partes[5]);
+		    $('#placa1').val(partes[6]);
+			$('#fecha_entrega1').val(partes[7]);
+			$('#asesor1').val(partes[8]);
+		}
+	   });
+	   var url="./PHP/mecanicoscitaconfirmada.php";
+		$.ajax({type:"POST", url:url,data: $("#fr").serialize(),
+		success: function(data)
+		{
+			var json=$.parseJSON(data);
+			$num =0;
+			while(json[$num]){
+				$('#mecanicos1').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
+				$num=$num+1;
+			}
+			
+		}
+	   });
+		
+    });
 	$( "select[name=lista_mecanicos]" ).change(function() {
 	  var antes = $('#mecanicos').val();
 	  if(antes==""){
@@ -75,6 +120,17 @@ function confirmarC(){
             {
                 alert("Cita confirmada");
 				rellenar();
+              
+            }
+        });
+}
+
+function modificarC(){
+        var url= "./PHP/modificarcita.php";
+        $.ajax({type:"POST", url:url,data: $("#fr").serialize(),
+            success: function(data)
+            {
+                alert("Cita Modificada");
               
             }
         });
