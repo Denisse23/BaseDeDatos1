@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2015 at 07:50 PM
+-- Generation Time: Mar 25, 2015 at 04:19 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.3.18
 
@@ -50,6 +50,13 @@ CREATE TABLE IF NOT EXISTS `automovil` (
   `id_cliente_automovil` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del cliente del automóvil'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `automovil`
+--
+
+INSERT INTO `automovil` (`placa`, `modelo`, `numero_motor`, `id_cliente_automovil`) VALUES
+('HCW-20', 'suzuki', '1G25255D255', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -62,13 +69,21 @@ CREATE TABLE IF NOT EXISTS `cita` (
   `tipo_reparacion` text COMMENT 'Tipo de reparación que se le debe hacer al carro',
   `fecha_entrega` date DEFAULT NULL COMMENT 'Fecha en la que se entregara el carro',
   `fecha_entrada` date DEFAULT NULL COMMENT 'Fecha en la que se registró en auto en la cita',
-  `hora_entrada` time DEFAULT NULL COMMENT 'Hora de registro del carro en la cita',
+  `hora_entrada` varchar(5) DEFAULT NULL COMMENT 'Hora de registro del carro en la cita',
   `estado` varchar(20) DEFAULT NULL COMMENT 'Estado del carro durante la cita',
   `placa_cita` varchar(20) DEFAULT NULL COMMENT 'La placa del carro en la cita',
   `id_jefe_cita` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del asesor encargado de la cita',
   `id_cliente_cita` bigint(20) unsigned DEFAULT NULL COMMENT 'El id del cliente de la cita',
-  `confirmada` int(1) DEFAULT NULL COMMENT 'Sera un 1 para cita confirmada y un 0 par cita aún no confirmada'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `confirmada` int(1) DEFAULT '0' COMMENT 'Sera un 1 para cita confirmada y un 0 par cita aún no confirmada'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cita`
+--
+
+INSERT INTO `cita` (`id_cita`, `tipo_mantenimiento`, `tipo_reparacion`, `fecha_entrega`, `fecha_entrada`, `hora_entrada`, `estado`, `placa_cita`, `id_jefe_cita`, `id_cliente_cita`, `confirmada`) VALUES
+(1, '5000', NULL, NULL, '2015-03-25', '15:00', NULL, 'HCW-20', NULL, 1, NULL),
+(2, '5000', 'fallo del motor de arranque', NULL, '2015-03-26', '08:00', NULL, 'HCW-20', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +110,14 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `segundo_apellido` varchar(25) CHARACTER SET utf32 DEFAULT NULL COMMENT 'segundo apellido del cliente',
   `direccion` varchar(40) DEFAULT NULL COMMENT 'Dirección de cliente ',
   `correo` varchar(30) DEFAULT NULL COMMENT 'Correo del cliente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `direccion`, `correo`) VALUES
+(1, 'Denisse', 'Anyell', 'Carbajal', 'Suazo', 'San jose de la peña', 'denisse.suazo@unitec.edu');
 
 -- --------------------------------------------------------
 
@@ -161,12 +183,12 @@ ALTER TABLE `asesor`
 -- AUTO_INCREMENT for table `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `id_cita` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id de la cita';
+  MODIFY `id_cita` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id de la cita',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'El id del cliente';
+  MODIFY `id_cliente` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'El id del cliente',AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -187,8 +209,8 @@ ADD CONSTRAINT `dueño` FOREIGN KEY (`id_cliente_automovil`) REFERENCES `cliente
 -- Constraints for table `cita`
 --
 ALTER TABLE `cita`
-ADD CONSTRAINT `automovil` FOREIGN KEY (`placa_cita`) REFERENCES `automovil` (`placa`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `asesor` FOREIGN KEY (`id_jefe_cita`) REFERENCES `asesor` (`id_asesor`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `automovil` FOREIGN KEY (`placa_cita`) REFERENCES `automovil` (`placa`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `cliente` FOREIGN KEY (`id_cliente_cita`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
