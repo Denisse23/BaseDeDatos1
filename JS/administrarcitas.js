@@ -5,6 +5,7 @@ $(document).ready(function(){
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			$('#citas_sin_confirmar').append('<option value='+"seleccionar"+'>'+"seleccionar id"+'</option>');
 			while(json[$num]){
 				$('#citas_sin_confirmar').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
@@ -18,6 +19,7 @@ $(document).ready(function(){
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			$('#citas_estado').append('<option value='+"seleccionar"+'>'+"seleccionar id"+'</option>');
 			while(json[$num]){
 				$('#citas_estado').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
@@ -31,6 +33,7 @@ $(document).ready(function(){
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			$('#asesor').append('<option value='+"seleccionar"+'>'+"seleccionar id asesor"+'</option>');
 			while(json[$num]){
 				$('#asesor').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
@@ -45,6 +48,7 @@ $(document).ready(function(){
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			$('#lista_mecanicos').append('<option value='+"seleccionar"+'>'+"seleccionar id mecanicos"+'</option>');
 			while(json[$num]){
 				$('#lista_mecanicos').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
@@ -87,12 +91,13 @@ $(document).ready(function(){
 			$('#asesor1').val(partes[8]);
 		}
 	   });
-	   var url="./PHP/mecanicoscitaconfirmada.php";
+	    var url="./PHP/mecanicoscitaconfirmada.php";
 		$.ajax({type:"POST", url:url,data: $("#fr").serialize(),
 		success: function(data)
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			alert(data);
 			while(json[$num]){
 				$('#mecanicos1').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
@@ -100,8 +105,10 @@ $(document).ready(function(){
 			
 		}
 	   });
+	   });
+	  
 		
-    });
+   
 	$( "select[name=lista_mecanicos]" ).change(function() {
 	  var antes = $('#mecanicos').val();
 	  if(antes==""){
@@ -123,6 +130,15 @@ function confirmarC(){
               
             }
         });
+		
+		var url= "./PHP/correo.php";
+        $.ajax({type:"POST", url:url,data: $("#fr2").serialize(),
+            success: function(data)
+            {
+                alert(data);
+              
+            }
+        });
 }
 
 function modificarC(){
@@ -140,14 +156,33 @@ function rellenar(){
 	while(document.getElementById("citas_sin_confirmar").length>0){
 		document.getElementById("citas_sin_confirmar").remove(0);
 	}
+	while(document.getElementById("citas_estado").length>0){
+		document.getElementById("citas_estado").remove(0);
+	}
+	
 	var url="./PHP/confirmarCitas.php";
 	$.ajax({type:"POST", url:url,data: $("#fr2").serialize(),
 		success: function(data)
 		{
 			var json=$.parseJSON(data);
 			$num =0;
+			$('#citas_sin_confirmar').append('<option value='+"seleccionar"+'>'+"seleccionar id"+'</option>');
 			while(json[$num]){
 				$('#citas_sin_confirmar').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
+				$num=$num+1;
+			}
+			
+		}
+	});
+	var url="./PHP/citasconfirmadas.php";
+	$.ajax({type:"POST", url:url,data: $("#fr").serialize(),
+		success: function(data)
+		{
+			var json=$.parseJSON(data);
+			$num =0;
+			$('#citas_estado').append('<option value='+"seleccionar"+'>'+"seleccionar id"+'</option>');
+			while(json[$num]){
+				$('#citas_estado').append('<option value='+json[$num]+'>'+json[$num]+'</option>');
 				$num=$num+1;
 			}
 		
@@ -155,5 +190,4 @@ function rellenar(){
 	});
 	
 }
-
 
