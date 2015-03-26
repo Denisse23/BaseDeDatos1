@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "1234";
-$dbname = "sistema_citas";
+$password = "lualmaca";
+$dbname = "SistemaCitas";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connection) {

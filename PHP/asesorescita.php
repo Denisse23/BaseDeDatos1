@@ -1,11 +1,11 @@
 <?php 
-	$conn=mysqli_connect('localhost','root','1234','sistema_citas');
+	$conn=mysqli_connect('localhost','root','lualmaca','SistemaCitas');
 	if (!$conn) {
 		die("CONNECTION_ERROR");
     }
 
 	
-	$query1= "SELECT id_asesor FROM asesor WHERE tipo='asesor'";
+	$query1= "SELECT id_asesor FROM asesor WHERE tipo='Asesor'";
 	$result1 = mysqli_query($conn,$query1);
 	$valores=array();
 	while($row=mysqli_fetch_array($result1)){

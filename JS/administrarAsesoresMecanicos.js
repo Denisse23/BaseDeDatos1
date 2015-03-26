@@ -22,7 +22,7 @@ $(document).ready(function(){
 				if (tipo_tmp == "Asesor")
 					id_asesor_jefe_tmp = "null";
 				else 
-					id_asesor_jefe_tmp = "1";
+					id_asesor_jefe_tmp = id_asesor_actual;
 				$.post("PHP/insertarAsesor.php", {
 					primer_nombre: primer_nombre_tmp,
 					segundo_nombre: segundo_nombre_tmp,

@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<title>Informe del automovil</title>
 		<link rel="stylesheet" type="text/css" href="archivoscss/general.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="JS/seguimientoCita.js"></script>
 	</head>
 	<body>
 		<br /><br /><br /><br />
@@ -12,28 +14,28 @@
 			<form id="fr" name="fr1" method="post">
 				<section>
 				<label>Ingrese Id de cita:<label>
-				<input type="text"="id_seguimiento" name="id_seguimiento"/>
-				<button type="button"  id="mostrar"><B>Mostrar</B></button>
+				<input type="text" id="id_seguimiento" name="id_seguimiento"/>
+				<input type="button"  id="mostrar" value="Mostrar">
 				<br />
 				<label>Nombre completo:<label>
-				<input type="text"id="nombre_completo" name="nombre_completo"/>
+				<input type="text"id="nombre_completo" name="nombre_completo" readonly/>
 				<label>Tipo cita:<label>
-				<input type="text"id="tipo" name="tipo"/>
-			    <input type="text"id="entrada" name="entrada"/>
+				<input type="text"id="tipo" name="tipo" readonly/>
+			    <input type="text"id="entrada" name="entrada" readonly/>
 				<label>Fecha entrada: (aaaa-mm-dd)</label>
-				<input type="text"id="fecha_entrada" name="fecha_entrada"/>
+				<input type="text"id="fecha_entrada" name="fecha_entrada" readonly/>
 				<label>Hora entrada:</label>
-				<input type="text"id="hora_entrada" name="hora_entrada"/>
+				<input type="text"id="hora_entrada" name="hora_entrada" readonly/>
 				<label>Placa:<label>
-				<input type="text"id="placa" name="placa"/>
+				<input type="text"id="placa" name="placa" readonly/>
 				<label>Posible fecha entrega: (aaaa-mm-dd)</label>
-				<input type="text"id="fecha_entrega" name="fecha_entrega"/>
+				<input type="text"id="fecha_entrega" name="fecha_entrega" readonly/>
 				<label>Asesor:<label>
-				<input type="text"id="asesor" name="asesor"/>
+				<input type="text"id="asesor" name="asesor" readonly/>
 				<label>Mecánicos:<label>
-				<select id="mecacinos" name="mecanicos"></select>
+				<select id="mecaninos" name="mecanicos"></select>
 				<label>Estado:<label>
-				<input type="text"id="estado" name="estado"/>
+				<input type="text"id="estado" name="estado" readonly/>
 				</section>
 			</form>
 			

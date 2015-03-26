@@ -9,9 +9,9 @@ if (!$connection) {
 	die("CONNECTION_ERROR");
 }
 
-$id_cliente = $_POST['id_cliente'];
+$id_asesor = $_POST['id_asesor'];
 
-$sql_query = "SELECT primer_nombre, segundo_nombre, primer_apellido, segundo_apellido FROM cliente WHERE id_cliente = '$id_cliente'";
+$sql_query = "SELECT primer_nombre, segundo_nombre, primer_apellido, segundo_apellido FROM asesor WHERE id_asesor = '$id_asesor'";
 $result = mysqli_query($connection, $sql_query);
 
 $retVal = "";

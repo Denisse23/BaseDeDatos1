@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "1234";
-$dbname = "sistema_citas";
+$password = "lualmaca";
+$dbname = "SistemaCitas";
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connection) {
@@ -17,7 +17,7 @@ $fecha_entrada = $_POST['fecha_entrada'];
 $hora_entrada = $_POST['hora_entrada'];
 $placa = $_POST['placa'];
 
-$sql_query = "INSERT INTO cita (tipo_mantenimiento, tipo_reparacion, fecha_entrada, hora_entrada, placa_cita, id_cliente_cita) VALUES ('$tipo_mantenimiento', '$tipo_reparacion', '$fecha_entrada', '$hora_entrada', '$placa', '$id_cliente')";
+$sql_query = "INSERT INTO cita (tipo_mantenimiento, tipo_reparacion, fecha_entrada, hora_entrada, placa_cita, id_jefe_cita, id_cliente_cita) VALUES ('$tipo_mantenimiento', '$tipo_reparacion', '$fecha_entrada', '$hora_entrada', '$placa', (SELECT id_asesor FROM asesor ORDER BY RAND() LIMIT 1), '$id_cliente')";
 if (mysqli_query($connection, $sql_query)) {
 	echo "Registro añadido.";
 } else {

@@ -1,5 +1,5 @@
 <?php 
-	$conn=mysqli_connect('localhost','root','1234','sistema_citas');
+	$conn=mysqli_connect('localhost','root','lualmaca','SistemaCitas');
 	if (!$conn) {
 		die("CONNECTION_ERROR");
     }
